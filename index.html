@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function kosta(){
+		alert("kosta");
+	}
+	var intNum = 10;
+	console.log(typeof intNum);
+	var floatNum= 3.14;
+	console.log(typeof floatNum);
+	var nullVar = null;
+	console.log(typeof nullVar);
+	var func = function(){}
+	console.log(typeof func);
+
+	intNum = "안녕";
+	console.log(typeof intNum);
+
+	//문자열 -> 정수형: eval(), parseInt(), Number()
+
+	var num3 = "15변수";
+	num3 = parseInt(num3);
+	var num4 = num3 + 10;
+	console.log(num4);
+
+	/*var num = "15변수";
+	num = eval(num);
+	var num2 = num + 10;
+	console.log(num2);*/
+
+	/*var num = "15";
+	if(num3 == num){
+		alert("같다");
+	}else{
+		alert("다르다");
+	}*/
+
+	var myVar = "전역변수";
+	function myFun(){
+		var myVar = "지역변수";
+		console.log(myVar);
+		console.log(window.myVar);
+		console.log(this.myVar);
+	}
+	myFun();
+
+</script>
+</head>
+<body>
+	<form>
+		<input type="button" value="버튼" onclick="kosta2()">
+	</form>
+</body>
+</html>

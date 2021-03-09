@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+         var v = 52;//변수
+         let l = 152;//변수, 중복선언 방지
+         const c = 100;//상수
+
+        {
+            //scope a
+            var varA = 52;// 다른 scope(범위)에서도 사용 가능(전역 변수)
+           // let letA = 42;// 해당 scope(범위)에서만 사용 가능(지역 변수)
+        }
+
+        {
+            //scope b
+            console.log(varA);
+            // console.log(letA);
+            console.log(l);//당연하지만 높은 scope의 let은 사용 가능
+        }
+        console.log(varA);
+        //console.log(letA);
+
+        // for(var i=0;i<3;i++){
+        //     //1초 후에 i값이 나오도록
+        //     setTimeout(() =>{
+        //         alert(i);
+        //     },1000*i)
+        // }
+
+        // for(var i=0;i<3;i++){
+        //     ((i) => {
+        //         setTimeout(()=>{
+        //             alert(i);
+        //         },1000*i);
+        //     })(i); //즉시실행 함수
+        // }
+
+        for(let i=0;i<3;i++){
+            setTimeout(() => {
+                alert(i);
+            }, 1000*i);
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

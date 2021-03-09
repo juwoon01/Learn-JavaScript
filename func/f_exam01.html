@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        console.log("add: " + add(10,20));
+        console.log("add: " + add);
+
+        //console.log("min: " + min(20,10)); // 오류
+        //console.log(typeof min);
+
+        //선언적 함수 -> JS가 인터프리터지만 선언적 함수는 메모리에 미리 올라온다.
+        function add(a,b){
+            let sum = a + b;
+            return sum;
+        }
+
+        //익명함수 -> 메모리에 미리 올라가지 않는다.
+        let min = function(a, b){
+            let min = a - b;
+            return min;
+        };
+
+        //변수에 함수를 전달할 수 있다.
+        let minus = min;
+        console.log(minus(30,20));
+
+        //  let minus = min();
+        // console.log(minus);//NaN
+        // console.log(minus(30,20));//오류
+
+        //함수의 인자에 함수를 전달할 수 있다.
+
+        let foo = function(func){
+            if(typeof func == 'function'){
+                func();
+            }
+        }
+        foo(function(){
+            console.log("파라미터에 함수를 호출하는 예제");
+        });
+          
+        //함수 안에서 함수를 리턴하여 리턴된 함수를 호출하는 예제 구현
+        let foo2 = function(){
+            return function(){
+                console.log("함수를 리턴하는 예제");
+            }
+        }
+        
+        foo2()();
+
+        let foo3 = foo2();
+        foo3();
+        
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
