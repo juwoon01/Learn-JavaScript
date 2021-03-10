@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        //Rectangle 생성자 함수를 만들고 넓이를 구해보자 
+
+        function Rectangle(row, column){
+            this.row = row;
+            this.column = column;
+        }
+        Rectangle.prototype = {
+            getArea: function(){
+                return this.row * this.column;
+            },
+            display: function(){
+                return "넓이 :" + this.getArea();
+            }
+        }
+
+        let rectangles = [];
+
+        rectangles.push(new Rectangle(10,20));
+        rectangles.push(new Rectangle(100,200));
+        rectangles[0].row = -10;//직접 접근 -> 캡슐화 하고싶다.
+        for(let i in rectangles){
+            document.write(rectangles[i].display() + "<br>");
+        }
+
+        //----------지역변수로 캡슐화----------
+
+         function Rectangle2(w, h){
+            let width = w;
+            let height = h;
+
+            this.setWidth = function(w){
+                width = w;
+            };
+            this.getWidth = function(){
+                return width;
+            };
+            this.setHeight = function(h){
+                height = h;
+            };
+            this.getHeight = function(){
+                return height;
+            };
+        }
+
+        Rectangle2.prototype = {
+            getArea: function(){
+                return this.getWidth() * this.getHeight();
+                //this.width * this.height 시 값이 나오지 않음
+            },
+            display: function(){
+                return "넓이 :" + this.getArea();
+            }
+        }
+
+        let rec2 = new Rectangle2(5,7);
+        rec2.setWidth(10);
+        document.write(rec2.display()+ "<br>");
+
+        //----------class----------
+
+        class Rectangle3{
+            constructor(w,h)
+            {
+                this.width = w;
+                this.height = h;
+            }
+
+            setWidth(w){
+                this.width = w;
+            }
+            getWidth(){
+                return this.width;
+            }
+            setHeight(){
+                this.height = h;
+            }
+            getHeight(){
+                return this.height;
+            }
+            getArea(){
+                return this.width * this.height;
+               
+            }
+            display(){
+                return "넓이 :" + this.getArea();
+            }
+        }
+
+        let rec3 = new Rectangle3(5,10);
+        rec3.setWidth(50);
+        //re3.width = 50; 오류 (캡슐화)
+        document.write(rec3.display()+"<br>");
+
+
+        class Square extends Rectangle3{
+            constructor(length)
+            {
+                super(length, length);
+            }
+        }
+
+        let squ = new Square(10);
+        document.write(squ.display() + "<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

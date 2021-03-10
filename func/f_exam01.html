@@ -55,6 +55,12 @@
         let foo3 = foo2();
         foo3();
         
+        //매개변수 없이 값 전달받기
+        function sum(){
+            let sum = arguments[0] + arguments[1];
+            document.write(sum);
+        }
+        sum(30,40);
        
     </script>
 </head>

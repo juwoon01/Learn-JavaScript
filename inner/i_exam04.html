@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function check(){
+            checkId();
+            checkEmail();
+        }
+
+        function checkId(){
+            let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+            let id = document.fmt.id.value;
+
+            for(let i in id){
+                if(str.indexOf(id.charAt(i)) == -1){
+                    alert("실패: 아이디는 대문자, 소문자, 숫자로 구성하셔야합니다.");
+                    break;
+                }//단순 검색은 indexOf가 빠르고 정규 표현식(/ /)은 search가 빠르다고 한다.
+            }
+            
+        }
+
+        function checkEmail(){
+            let email = document.fmt.email.value;
+            if(email.indexOf('@') == -1){
+                alert("이메일 형식이 아닙니다.");
+            }
+        }
+
+        //index로 범위를 벗어나는 값이 입력되면 charAt(index) 함수는 빈 문자열('')을 리턴합니다.
+        //문자열[index] 구문은 undefined를 리턴합니다.
+
+
+출처: https://hianna.tistory.com/378 [어제 오늘 내일]
+    </script>
+</head>
+<body>
+    <form name="fmt">
+        아이디: <input type="text" name="id"><br>
+        이메일: <input type="text" name="email"><br>
+        <input type="submit" value="전송" onclick="check()">
+    </form>
+</body>
+</html>

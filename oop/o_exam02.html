@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        //생성자 함수를 이용한 객체 생성
+
+        function grade(kor, eng, mat){
+            this.kor = kor;
+            this.eng = eng;
+            this.mat = mat;
+        }
+
+        function student(name, grade){
+            this.name = name;
+            this.grade = grade;
+            this.getSum = function(){
+                return this.grade.kor + this.grade.eng + this.grade.mat;
+            }
+            this.getAverage = function(){
+                return this.getSum() / 3;
+            }
+            this.toString = function(){
+                return this.name + "\t" +  this.grade.kor + "\t" + this.grade.eng 
+                + "\t" + this.grade.mat + "\t" + this.getSum() + "\t" + this.getAverage();
+            }
+        }
+
+        let students = [];
+        students.push(new student("홍길동", new grade(90,80,70)));
+        students.push(new student("박길동", new grade(50,70,50)));
+        
+        for(let i in students){
+            document.write(students[i].toString() + "<br>");
+        }
+
+
+        //PhoneInfo 객체로 구현 (name, phoneNo, birth , display())
+        //1.리터럴 형식
+        
+        let phoneInfo1 = {
+            name: "홍길동",
+            phoneNo: "010-1234-5678",
+            birth: "1998-07-16",
+            display: function(){
+                return "이름: " + this.name +"\t"+ "전화번호: " + this.phoneNo +"\t"+ "생년월일: " + this.birth;
+            }
+        }
+
+        let phoneInfo2 = {
+            name: "정동길",
+            phoneNo: "010-4567-3214",
+            birth: "1997-06-15",
+            display: () => {
+                return "이름: " + this.name +"\t"+ "전화번호: " + this.phoneNo +"\t"+ "생년월일: " + this.birth;
+            }// 출력이 제대로 안됨: 자바스크립트의 람다식은 this를 고정시키는 기능이 있기 때문
+        }
+
+        document.write(phoneInfo1.display()+"<br>");
+        document.write(phoneInfo2.display()+"<br>");
+
+        //2.생성자 형식
+
+        let PhoneInfo = function(name, phoneNo, birth){
+            this.name = name;
+            this.phoneNo = phoneNo;
+            this.birth = birth;    
+        }
+
+        PhoneInfo.prototype.display = function(){
+            return "이름: " + this.name +"\t"+ "전화번호: " + this.phoneNo +"\t"+ "생년월일: " + this.birth;
+        }
+        let phoneInfos = [];
+        phoneInfos.push(new PhoneInfo("학지운","010-4444-7777","1988-08-08"));
+        phoneInfos.push(new PhoneInfo("원주안","010-7979-7777","1978-07-17"));
+        
+        for(let i in phoneInfos){
+            document.write(phoneInfos[i].display() + "<br>");
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

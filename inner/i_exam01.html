@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let arr1 = [];
+        arr1[0] = "준우";
+        arr1[1] = "경윤";
+        arr1[2] = "제룡";
+        
+        let arr2 = new Array(3);
+        
+        arr2[0] = "택수";
+        arr2[1] = "성민";
+        arr2[2] = "희영";
+        
+        let arr3 = new Array("가영","승엽","주은");
+        
+        //배열 => 문자열
+        document.write(arr1.toString() + "<br>");// , =>기준
+        document.write(arr1.join(" ") + "<br>");// 자신의기준 =>기준
+        
+        //배열추가
+        let arr4 = arr3.concat(arr2);
+        document.write(arr4.toString()+ "<br>");
+        //가영,승엽,주은,택수,성민,희영 -- concat 배열끼리 이어서 추출
+        
+        
+        //배열 부분추출(자바:sucString()) -- slice 부분추출
+        let arr5 = arr4.slice(1,4);
+        document.write(arr5.toString()+ "<br>");
+        
+        //배열 부분삭제(splice(인덱스, 갯수))
+        var arr6 = arr4.splice(1,3);
+        document.write(arr4.toString()+"<br>");
+        document.write(arr6.toString()+"<br>");
+        
+        //정렬
+        let arr7 = arr4.sort();//오름차순
+        document.write(arr7.toString() + "<br>");
+        
+        
+        //내림차순
+        let array = [52,65,51,87,565,1];
+        array.sort(function(a, b) {
+            if(a>b){
+                return 1;
+                
+            }
+            
+        })
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

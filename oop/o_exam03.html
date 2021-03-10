@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        //prototype = 생성자 함수에 새로운 함수를 할당할 때 사용
+        //            메모리에 한번만 할당, 생성자 함수의 모든 객체가 사용
+        function student(name,kor, eng, mat){
+            this.name = name;
+            this.kor = kor;
+            this.eng = eng;
+            this.mat = mat;
+        }
+
+        student.prototype = {
+            getSum: function(){
+                return this.kor + this.eng + this.mat;
+            },
+            getAverage: function(){
+                return this.getSum() / 3;
+            },
+            toString: function(){
+                return this.name + "\t" +  this.kor + "\t" + this.eng 
+                + "\t" + this.mat + "\t" + this.getSum() + "\t" + this.getAverage();
+            }
+        }
+
+        let students = [];
+        students.push(new student("홍길동", 90,80,70));
+        students.push(new student("박길동", 50,70,50));
+        
+        for(let i in students){
+            document.write(students[i].toString() + "<br>");
+        }
+      
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

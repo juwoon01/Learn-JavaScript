@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+        //배열 생성 후 이미지 7개 경로를 배열에 추가
+       // let imgArr = new Array("../images/pic1.jpg","../images/pic2.jpg","../images/pic3.jpg",
+       // "../images/pic4.jpg","../images/pic5.jpg","../images/pic6.jpg","../images/pic7.jpg");
+
+        let imgArr = [];
+        for(let i=0;i<7;i++){
+            imgArr[i] = "../images/pic" +(1+i)+".jpg";
+        }
+
+        window.onload = function(){
+            //0~6 난수 발생
+            let randNo = Math.floor(Math.random()*7);
+            const img = document.getElementById("img");
+            img.src = imgArr[randNo];
+        }
+    </script>
+</head>
+<body>
+    <img id="img" src="">
+</body>
+</html>

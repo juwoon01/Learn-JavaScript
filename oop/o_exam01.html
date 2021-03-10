@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        //사용자 정의 객체
+
+        //1. Object 객체 이용 => 동적 프로퍼티 추가 가능
+        let obj = new Object();
+        obj.name = "안주원";
+        obj.age = 25;
+
+        console.log("이름: " + obj.name);
+        console.log("나이: " + obj.age);
+
+        //2.리터럴 형식 객체
+        let a = {}; //비어있는 객체
+        let obj2 = {
+            name: "홍길동",
+            age: 30,
+            display: function(){
+                console.log(this.name);
+                console.log(this.age);
+            }
+        }
+
+        obj2.display();
+
+        //함수도 객체이다.
+        function add(x,y){
+            return x+y;
+        }
+
+        add.reseult = add(100,200);
+        add.status = "ok";
+        console.log(add.reseult);
+        console.log(add.status);
+
+        //퀴즈 > 리터럴 형식으로 빈객체를 생성 후 동적 프로퍼티와 함수를 등록 후 호출해서 사용하는 예제를 구현하시오.
+        let sumObj = {};
+        sumObj.x = 10;
+        sumObj.y = 100;
+        sumObj.sum = function(){
+            return this.x + this.y;
+        }
+        console.log(sumObj.sum());
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
