@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script type="text/javascript">
+    //onmouseover, onmouseout
+
+    let defSrc;
+    function over(){
+        const def = document.getElementById("default");
+        def.src = this.src;
+    }
+    function out(){
+        const def = document.getElementById("default");
+        def.src = defSrc;
+    }
+
+    function mouseListener(e){
+        const def = document.getElementById("default");
+        if(e.type == "mouseover"){
+            def.src = this.src;
+        }else if(e.type == "mouseout"){
+            def.src = defSrc;
+        }
+    }
+
+    window.onload = function(){
+        const imgs = document.getElementsByTagName("img");
+        defSrc = document.getElementById("default").src;
+        for(let i = 1; i < imgs.length; i++){
+            imgs[i].onmouseover = mouseListener;
+            imgs[i].onmouseout = mouseListener;
+        }
+    }
+
+
+</script>
+</head>
+
+<body>
+    <center>
+        <h2>고양이 앨범</h2>
+        <img id="default" src="../images/cat0.jpg" border="1" width="600" height="450"></img>
+        <br/><br/><br/>
+        
+        <img src="../images/cat1.jpg" width="70" height="70" border="1" hspace="10" 
+                vspace="10" >
+        <img src="../images/cat2.jpg" width="70" height="70" border="1" hspace="10" 
+                vspace="10">
+        <img src="../images/cat3.jpg" width="70" height="70" border="1" hspace="10" 
+                vspace="10">
+        
+    </center>
+</body>
+</html>

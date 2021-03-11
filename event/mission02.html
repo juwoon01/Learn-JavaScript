@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        //객체를 활용하여 계산기 프로그램을 구현하자.
+        
+        //document.fmt.f1.value;
+        //document.fmt.result.value = 연산값
+        
+        
+        // function clickListener(){
+        //     let x = document.fmt.f1.value;
+        //     let y = document.fmt.f2.value;
+        //     if(this.value == "+"){
+        //         document.fmt.result.value = x+y;
+        //     }else{
+        //         document.fmt.result.value = x-y;
+        //     }
+        // }
+
+
+        let calculate = {// 함수가 많으면 리터럴 형식으로 관리하면 사용하기 좋다.
+            num1: 0,
+            num2: 0,
+            result: 0,
+            calc: function(){
+                num1 = parseInt(document.fmt.f1.value);
+                num2 = parseInt(document.fmt.f2.value)
+                let opt = this.value;
+
+                if(opt == '+'){
+                    result = num1 + num2;
+                }else{
+                    result = num1 - num2;
+                }
+                document.fmt.result.value = result;
+            }
+        };
+
+        window.onload = function(){
+            const plus = document.getElementById("plus");
+            const minus = document.getElementById("minus");
+
+            plus.addEventListener("click",calculate.calc,false);
+            minus.addEventListener("click",calculate.calc,false);
+        }
+        
+    </script>
+    </head>
+    <body>
+        <h2>계산기</h2>
+        <table border="1">
+            <form name="fmt">
+                <tr>
+                    <td>숫자1</td>
+                    <td><input type="text" name="f1"></input></td>
+                </tr>
+                <tr>
+                    <td>숫자2</td>
+                    <td><input type="text" name="f2"></input></td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;&nbsp;&nbsp;&nbsp; 
+                        <input type="button" value="+" id="plus"></input> &nbsp;&nbsp;&nbsp;&nbsp; 
+                        <input type="button" value="-" id="minus"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>결과</td>
+                    <td><input type="text" name="result"></input></td>
+                </tr>
+            </form>
+        </table>
+    
+    </body>
+    </html>
+    

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            border: 1px solid;
+        }
+        #aa{
+            width: 300px;
+            height: 300px;
+            background: yellow;
+        }
+        
+        #bb{
+            width: 150px;
+            height: 150px;
+            margin-left: 80px;
+            margin-top: 40px;
+            background: green;
+        }
+    </style>
+    <script type="text/javascript" src="crossEvent.js"></script>
+    <script type="text/javascript">
+        //aa클릭 -> aa출력
+        //bb클릭 -> bb출력
+
+        function printA(){
+            alert("aa");
+        }
+        function printB(e){//이벤트 핸들러 함수는 매개변수에 이벤트 객체를 받을 수 있다.
+            alert("bb");
+
+            //이벤트 객체 구하기
+            let event = window.event || e;
+            cross.Event.stopBubble(event);
+            //cross.Event.stopBubble(e);
+        }
+
+        window.onload = function(){
+            const aa = document.getElementById("aa");
+            const bb = document.getElementById("bb");
+            cross.Event.addListener(aa,'click',printA,false);
+            cross.Event.addListener(bb,'click',printB,false);
+            //bb를 누르면 printB 가 실행되고 printA도 실행된다 -> 버블링 (반대는 캡쳐링)
+
+        }
+        
+    </script>
+    </head>
+    <body>
+        <div id="aa">
+            aaaaaaaaaaa
+            <div id="bb">
+                bbbbbbbbb
+            </div>
+            aaaaaaaaaaa
+        </div>
+    </body>
+    </html>

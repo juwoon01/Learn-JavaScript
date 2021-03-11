@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="crossEvent.js"></script>
+    <script type="text/javascript">
+
+        //이벤트 헨들러 함수
+        function doProcess(){
+            const result = document.getElementById("result")
+            result.innerHTML = "<span>이벤트 결과1</span>";
+        }
+
+        function doProcess2(){
+            alert("이벤트 결과2");
+        }
+
+        window.onload = function(){//html을 모두 읽은 후 실행
+            const btn = document.getElementById("btn");
+           // btn.onclick = doProcess2;// 자바스크립트에서 html에 이벤트 걸기
+           // btn.onclick = doProcess;// 덮어 씀 -> 한 버튼이 여러 이벤트 불가 => 이벤트 리스너 사용
+        
+           // btn.addEventListener('click',doProcess2,false);//익스플로어에 적용x
+           //btn.addEventListener('click',doProcess,false);
+
+           cross.Event.addListener(btn, "click", doProcess2, false);
+           cross.Event.addListener(btn, "click", doProcess, false);
+        }
+
+
+    </script>
+
+  
+
+</head>
+<body>
+    <input type="button" value="버튼1" onclick="doProcess()">&nbsp;&nbsp;
+    <input type="button" value="버튼2" id="btn">
+    <div id="result"></div>
+</body>
+</html>
