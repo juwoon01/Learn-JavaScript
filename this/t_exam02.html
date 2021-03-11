@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var data = 10;
+        //let data = 10;
+        function MyClass(){//생성자 함수
+            this.data = 0;// 객체
+        }
+
+        MyClass.prototype.method1 = function(){
+            this.data = 20; //객체
+            data = 30; //전역
+
+            console.log("1. data: "+ data); //전역 30
+            console.log("1. this.data: "+ this.data); //객체 20
+            console.log("1. window.data: "+ window.data); //전역 30
+        }
+            
+    
+       var m1 = new MyClass();
+       m1.method1();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

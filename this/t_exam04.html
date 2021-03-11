@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        var data = 'Global data';
+        var obj1 ={'data': 'obj1 data'};
+        var obj2 ={'data': 'obj2 data'};
+
+        function func(){
+            console.log(this.data);
+        }
+        
+        func.call(obj1);// 함수 안의 this 가 obj1이 된다.
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

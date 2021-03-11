@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        //var data = 10;
+        let data = 10; //let은 전역변수가 아니다 = 윈도우 객체의 변수가 아니다. 
+        function outer(){
+            this.data = 20;//일반 함수 안에서의 this는 윈도우 객체(전역), let에 먹힘
+            data = 30;// let에 안먹히고 새로 생성
+
+            console.log("1. data: "+ data);
+            console.log("1. this.data: "+ this.data);
+            console.log("1. window.data: "+ window.data);
+        }
+       outer();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
