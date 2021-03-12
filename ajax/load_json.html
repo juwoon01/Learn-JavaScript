@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="httpRequest.js"></script>
+<script type="text/javascript">
+
+	function viewInfo(){
+		if(httpRequest.readyState == 4){
+			if(httpRequest.status == 200){
+				let result = eval("("+httpRequest.responseText+")");//eval(): 전체가 문자열(string) -> JS 객체로 변환 해야 사용하기 좋음
+				if(result.code == "success"){
+					let m = result.data.member;
+					let html = "<span>이름: "+ m.name + ", ID: "+m.id + "</span>"; 
+					const list = document.getElementById("list");
+					list.innerHTML = html;
+				}
+				
+			}
+		}
+	}
+	
+	window.onload = function(){
+		sendRequest("member_json.jsp", null, viewInfo, "GET");
+	}
+</script>
+</head>
+<body>
+	<div id="list"></div>
+</body>
+</html>
