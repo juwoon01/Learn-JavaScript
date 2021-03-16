@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            const canvas = document.getElementById("canvas");
+            const context = canvas.getContext("2d");
+
+            $(canvas).on({
+                mousedown: function(event){
+                    const position = $(this).offset();
+                    const x = event.pageX - position.left;// 좌표값
+                    const y = event.pageY - position.top;
+
+                    //선 그리기
+                    context.beginPath();
+                    context.moveTo(x, y);
+                },
+                mouseup: function(event){
+                    const position = $(this).offset();
+                    const x = event.pageX - position.left;// 좌표값
+                    const y = event.pageY - position.top;
+
+                    context.lineTo(x, y);
+                    context.stroke();
+                }
+            });
+        });
+     </script>
+</head>
+<body>
+    <canvas id="canvas" width="700" height="400" style="border: 3px solid;"></canvas>
+</body>
+</html>

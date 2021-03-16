@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            //div에게 클릭 이벤트를 발생 => 경고창 출력
+            $('div').click(function(){
+                const header = $(this).find('h1').text();
+                const par = $(this).find('p').text();
+
+                alert(header +"\n"+ par);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Header</h1>
+        <p>Paragraph</p>
+    </div>
+</body>
+</html>
